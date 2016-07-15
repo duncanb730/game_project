@@ -1,5 +1,5 @@
 var Speed = function getRandomInt(min, max){
-    return Math.floor(Math.random() * (max - min + 1) * dt);
+    return Math.floor(Math.random() * (max - min + 1)) * dt;
 };
 // Enemies our player must avoid
 var Enemy = function(x, y, sprite) {
@@ -80,11 +80,12 @@ var enemy2 = new Enemy(-101, 140, randomInt(250, 450), 'images/enemy-bug.png');
 var enemy3 = new Enemy(-101, 225, randomInt(250, 450), 'images/enemy-bug.png');
 var enemy4 = new Enemy(-101, 140, randomInt(250, 450), 'images/enemy-bug.png');
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [];
-allEnemies.push(enemy1);
-allEnemies.push(enemy2);
-allEnemies.push(enemy3);
-allEnemies.push(enemy4);
+var allEnemies = [
+    allEnemies.push(enemy1),
+    allEnemies.push(enemy2),
+    allEnemies.push(enemy3),
+    allEnemies.push(enemy4)
+];
 // Place the player object in a variable called player
 var player = new Player(202, 390);
 var allPlayers = [];
