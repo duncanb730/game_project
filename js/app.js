@@ -11,7 +11,7 @@ var Enemy = function(x, y, sprite) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-
+    this.speed = Speed;
 };
 
 // Update the enemy's position, required method for game
@@ -20,8 +20,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = x++
-    this.speed = Speed;
+    this.x += this.speed * dt;
+    this.reset();
 };
 
 // Draw the enemy on the screen, required method for game
@@ -37,11 +37,13 @@ var Player = function() {
     this.y = y;
     this.sprite = 'images/char-boy.png';
 };
+
 Player.prototype.update = function(dt) {
     if (this.collide()) {
         this.reset();
     }
 };
+
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
