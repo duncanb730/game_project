@@ -1,4 +1,4 @@
-var Speed = function getRandomInt(min, max){
+var Speed = function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) * dt;
 };
 // Enemies our player must avoid
@@ -33,11 +33,14 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function() {
-    this.x = x;
-    this.y = y;
+    this.x = 202;
+    this.y = 390;
     this.sprite = 'images/char-boy.png';
 };
-
+Player.prototype.reset = function() {
+    this.x = 202;
+    this.y = 390;
+ };
 Player.prototype.update = function(dt) {
     if (this.collide()) {
         this.reset();
@@ -70,22 +73,19 @@ Player.prototype.handleInput = function(movement) {
     up: 50,
     bottom: 390
  };
- Player.prototype.reset = function() {
-    this.x = 202;
-    this.y = 390;
- };
+ 
 // Now instantiate your objects.
-var enemy1 = new Enemy(-101, 55, randomInt(250, 450), 'images/enemy-bug.png');
-var enemy2 = new Enemy(-101, 140, randomInt(250, 450), 'images/enemy-bug.png');
-var enemy3 = new Enemy(-101, 225, randomInt(250, 450), 'images/enemy-bug.png');
-var enemy4 = new Enemy(-101, 140, randomInt(250, 450), 'images/enemy-bug.png');
+var enemy1 = new Enemy(-101, 55, 'images/enemy-bug.png');
+var enemy2 = new Enemy(-101, 140, 'images/enemy-bug.png');
+var enemy3 = new Enemy(-101, 225, 'images/enemy-bug.png');
+var enemy4 = new Enemy(-101, 140, 'images/enemy-bug.png');
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [
-    allEnemies.push(enemy1),
-    allEnemies.push(enemy2),
-    allEnemies.push(enemy3),
-    allEnemies.push(enemy4)
-];
+var allEnemies = [];
+    allEnemies.push(enemy1);
+    allEnemies.push(enemy2);
+    allEnemies.push(enemy3);
+    allEnemies.push(enemy4);
+
 // Place the player object in a variable called player
 var player = new Player(202, 390);
 var allPlayers = [];
