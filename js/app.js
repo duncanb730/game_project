@@ -21,8 +21,12 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
-    this.reset();
+    // this.reset();
 };
+// Enemy.prototype.reset = function() {
+//     this.x = x;
+//     this.y = y;
+// };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -37,16 +41,12 @@ var Player = function() {
     this.y = 390;
     this.sprite = 'images/char-boy.png';
 };
-Player.prototype.reset = function() {
-    this.x = 202;
-    this.y = 390;
- };
+
 Player.prototype.update = function(dt) {
-    if (this.collide()) {
+    if (this.collide(Enemy)) {
         this.reset();
     }
 };
-
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -73,7 +73,10 @@ Player.prototype.handleInput = function(movement) {
     up: 50,
     bottom: 390
  };
- 
+ Player.prototype.reset = function() {
+    this.x = 202;
+    this.y = 390;
+ };
 // Now instantiate your objects.
 var enemy1 = new Enemy(-101, 55, 'images/enemy-bug.png');
 var enemy2 = new Enemy(-101, 140, 'images/enemy-bug.png');
