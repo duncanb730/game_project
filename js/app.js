@@ -41,9 +41,13 @@ var Player = function() {
     this.y = 390;
     this.sprite = 'images/char-boy.png';
 };
-
-Player.prototype.update = function(dt) {
-    if (this.collide(Enemy)) {
+var collide = function() {
+    if (Enemy.x && Enemy.y === Player.x && Player.y) {
+        Player.reset();
+    }
+};
+Player.prototype.update = function() {
+    if (this.collide()) {
         this.reset();
     }
 };
@@ -73,7 +77,7 @@ Player.prototype.handleInput = function(movement) {
     up: 50,
     bottom: 390
  };
- Player.prototype.reset = function() {
+ Player.prototype.reset = function(reset) {
     this.x = 202;
     this.y = 390;
  };
