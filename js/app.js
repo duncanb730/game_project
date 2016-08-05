@@ -1,6 +1,7 @@
 var Speed = function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) * dt;
+    return Math.floor(Math.random() * (max - min + 1));
 };
+
 // Enemies our player must avoid
 var Enemy = function(x, y, sprite) {
     // Variables applied to each of our instances go here,
@@ -11,7 +12,7 @@ var Enemy = function(x, y, sprite) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Speed;
+    this.speed = Speed(65, 250);
 };
 
 // Update the enemy's position, required method for game
@@ -20,8 +21,11 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed * dt;
-    // this.reset();
+    if ( this.x < 505) {
+        this.x += this.speed * dt;
+    } else {
+        this.x = 0;
+    }
 };
 // Enemy.prototype.reset = function() {
 //     this.x = x;
@@ -67,7 +71,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function(movement) {
+Player.prototype.handleInput = function(direction) {
     if (direction === 'left' && this.x !== borders.left) {
         this.x -= 101;
     }
