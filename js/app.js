@@ -41,15 +41,27 @@ var Player = function() {
     this.y = 390;
     this.sprite = 'images/char-boy.png';
 };
-var collide = function() {
-    if (Enemy.x && Enemy.y === Player.x && Player.y) {
-        Player.reset();
-    }
-};
+// var collide = function() {
+//     if (Enemy.x && Enemy.y === Player.x && Player.y) {
+//         Player.reset();
+//     }
+// };
+// Player.prototype.collide = function() {
+//     if (Enemy1.x && Enemy1.y === Player.x && Player.y) {
+//         Player.reset();
+//     }
+//     if (Enemy2.x && Enemy2.y === Player.x && Player.y) {
+//         Player.reset();
+//     }
+//     if (Enemy3.x && Enemy3.y === Player.x && Player.y) {
+//         Player.reset();
+//     }
+//     if (Enemy4.x && Enemy4.y === Player.x && Player.y) {
+//         Player.reset();
+//     }
+// };
 Player.prototype.update = function() {
-    if (this.collide()) {
-        this.reset();
-    }
+    
 };
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
