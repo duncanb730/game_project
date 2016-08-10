@@ -78,7 +78,8 @@ var Engine = (function(global) {
      * functionality this way (you could just implement collision detection
      * on the entities themselves within your app.js file).
      */
-    function collide() {
+
+    function collisions() {
         if (allEnemy.x && allEnemy.y === Player.x && Player.y) {
         Player.reset();
         }

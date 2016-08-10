@@ -52,20 +52,22 @@ var Player = function() {
 // };
 // Player.prototype.collide = function() {
 //     if (Enemy1.x && Enemy1.y === Player.x && Player.y) {
-//         Player.reset();
+//         this.reset();
 //     }
 //     if (Enemy2.x && Enemy2.y === Player.x && Player.y) {
-//         Player.reset();
+//         this.reset();
 //     }
 //     if (Enemy3.x && Enemy3.y === Player.x && Player.y) {
-//         Player.reset();
+//         this.reset();
 //     }
 //     if (Enemy4.x && Enemy4.y === Player.x && Player.y) {
-//         Player.reset();
+//         this.reset();
 //     }
 // };
 Player.prototype.update = function() {
-    
+    // if (allEnemies.x && allEnemies.y === Player.x && Player.y) {
+    //     this.reset();
+    // }
 };
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -81,9 +83,9 @@ Player.prototype.handleInput = function(direction) {
     if (direction === 'down' && this.y !== borders.bottom) {
         this.y += 85;
     }
-    if (direction === 'up') {
+    if (direction === 'up' && this.y > 100) {
         this.y -= 85;
-    } else if (direction === 'up' && this.y === 50) {
+    } else if (direction === 'up' && this.y <= 100) {
         this.reset();
     }
 };
