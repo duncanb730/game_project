@@ -59,9 +59,10 @@ var Player = function() {
 // };
 
 Player.prototype.update = function() {
+    var self = this;
     allEnemies.forEach(function(enemy) {
-        if (Math.abs(enemy.x - Player.x) < 50 && (enemy.y - Player.y) < 50) {
-            this.reset();
+        if (Math.abs(enemy.x - self.x) < 50 && Math.abs(enemy.y - self.y) < 50) {
+            self.reset();
         }
     });
 };
