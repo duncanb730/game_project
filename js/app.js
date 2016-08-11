@@ -51,23 +51,19 @@ var Player = function() {
 //     }
 // };
 // Player.prototype.collide = function() {
-//     if (Enemy1.x && Enemy1.y === Player.x && Player.y) {
-//         this.reset();
-//     }
-//     if (Enemy2.x && Enemy2.y === Player.x && Player.y) {
-//         this.reset();
-//     }
-//     if (Enemy3.x && Enemy3.y === Player.x && Player.y) {
-//         this.reset();
-//     }
-//     if (Enemy4.x && Enemy4.y === Player.x && Player.y) {
-//         this.reset();
-//     }
+//     allEnemies.forEach(function(enemy) {
+//         if (Math.abs (enemy.x - Player.x) < 50 && (enemy.y - Player.y) < 50) {
+//             this.reset();
+//         }
+//     });
 // };
+
 Player.prototype.update = function() {
-    // if (allEnemies.x && allEnemies.y === Player.x && Player.y) {
-    //     this.reset();
-    // }
+    allEnemies.forEach(function(enemy) {
+        if (Math.abs(enemy.x - Player.x) < 50 && (enemy.y - Player.y) < 50) {
+            this.reset();
+        }
+    });
 };
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
