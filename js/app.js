@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    if ( this.x < 505) {
+    if ( this.x < 808) {
         this.x += this.speed * dt;
     } else {
         this.x = 0;
@@ -88,7 +88,7 @@ Player.prototype.handleInput = function(direction) {
 };
  var borders = {
     left: 0,
-    right: 404,
+    right: 707,
     up: 50,
     bottom: 390
  };
