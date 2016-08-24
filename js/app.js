@@ -14,7 +14,12 @@ var Enemy = function(x, y, sprite) {
     this.y = y;
     this.speed = Speed(65, 250);
 };
-
+ var EnemyRev = function(x, y, sprite) {
+    this.sprite = 'images/enemy-bug2.png';
+    this.x = x;
+    this.y = y;
+    this.speed = Speed(65, 250);
+ };
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -27,16 +32,20 @@ Enemy.prototype.update = function(dt) {
         this.x = 0;
     }
 };
-// Enemy.prototype.reset = function() {
-//     this.x = x;
-//     this.y = y;
-// };
-
+EnemyRev.prototype.update = function(dt) {
+    if ( this.x < 808) {
+        this.x -= this.speed * dt;
+    } else {
+        this.x = 808;
+    }
+};
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
+// EnemyRev.prototype.render = function() {
+//     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+// };
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -98,15 +107,20 @@ Player.prototype.handleInput = function(direction) {
  };
 // Now instantiate your objects.
 var enemy1 = new Enemy(-101, 55, 'images/enemy-bug.png');
-var enemy2 = new Enemy(-101, 140, 'images/enemy-bug.png');
+var enemy2 = new EnemyRev(808, 140, 'images/enemy-bug2.png');
 var enemy3 = new Enemy(-101, 225, 'images/enemy-bug.png');
-var enemy4 = new Enemy(-101, 140, 'images/enemy-bug.png');
+var enemy4 = new EnemyRev(808, 140, 'images/enemy-bug2.png');
+var enemy5 = new Enemy(-101, 55, 'images/enemy-bug.png');
+var enemy6 = new Enemy(-101, 225, 'images/enemy-bug.png');
+
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
     allEnemies.push(enemy1);
     allEnemies.push(enemy2);
     allEnemies.push(enemy3);
     allEnemies.push(enemy4);
+    allEnemies.push(enemy5);
+    allEnemies.push(enemy6);
 
 // Place the player object in a variable called player
 var player = new Player(202, 390);
