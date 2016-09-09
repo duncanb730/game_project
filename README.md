@@ -10,13 +10,13 @@ It's pretty simple. Inside the game file folder, open the index.html file in you
 
 ##Your Character.
 
-You are the boy with antennae. I'm not sure why you have antennae, but it was the best-looking sprite I could find.
+You are the boy with antennae. I'm not sure why you have antennae, but you have antennae and lets just go with that.
 
 ##The Enemy.
 
 BUGS. Big bugs. 
 
-###Notes.
+####Notes.
 I'm planning on making new sprites at some point in the future. Oversize ladybugs don't really seem like a truly worthwhile enemy. A tractor-trailer, sports car, pickup truck, maybe even a stylized Donald Trump or Trump supporter in a red hat would make a more believeable enemy. I suppose I could put a hat on the ladybugs. Let me check on that...
 
 ##Gameplay.
@@ -27,4 +27,4 @@ You move your character using the arrow keys on your keyboard. The movements are
 
 ##A Bit of Advice
 
-Move quickly. After the first few laps, the bugs get spread out and they do a pretty good job covering the road. It's never impossible, but it can get harder. The closest approximation of the recommended strategy is act like you're in Bangkok, Thailand and trying to cross the road.
+Move quickly. After the first few laps, the bugs get spread out and they do a pretty good job covering the road. It's never impossible, but it can get harder. The closest approximation of the recommended strategy is act like you're trying to cross the road in Bangkok, Thailand.
