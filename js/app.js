@@ -12,14 +12,14 @@ var Enemy = function(x, y, sprite) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Speed(65, 250);
+    this.speed = Speed(95, 250);
 };
- var EnemyRev = function(x, y, sprite) {
-    this.sprite = 'images/enemy-bug2.png';
-    this.x = x;
-    this.y = y;
-    this.speed = Speed(65, 250);
- };
+ // var EnemyRev = function(x, y, sprite) {
+ //    this.sprite = 'images/enemy-bug2.png';
+ //    this.x = x;
+ //    this.y = y;
+ //    this.speed = Speed(65, 250);
+ // };
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -32,13 +32,13 @@ Enemy.prototype.update = function(dt) {
         this.x = 0;
     }
 };
-EnemyRev.prototype.update = function(dt) {
-    if ( this.x < 808) {
-        this.x -= this.speed * dt;
-    } else {
-        this.x = 808;
-    }
-};
+// EnemyRev.prototype.update = function(dt) {
+//     if ( this.x < 808) {
+//         this.x += this.speed * dt;
+//     } else {
+//         this.x = 808;
+//     }
+// };
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -50,7 +50,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function() {
-    this.x = 202;
+    this.x = 404;
     this.y = 390;
     this.sprite = 'images/char-boy.png';
 };
@@ -102,16 +102,22 @@ Player.prototype.handleInput = function(direction) {
     bottom: 390
  };
  Player.prototype.reset = function(reset) {
-    this.x = 202;
+    this.x = 404;
     this.y = 390;
  };
 // Now instantiate your objects.
 var enemy1 = new Enemy(-101, 55, 'images/enemy-bug.png');
-var enemy2 = new EnemyRev(808, 140, 'images/enemy-bug2.png');
+var enemy2 = new Enemy(-101, 140, 'images/enemy-bug.png');
 var enemy3 = new Enemy(-101, 225, 'images/enemy-bug.png');
-var enemy4 = new EnemyRev(808, 140, 'images/enemy-bug2.png');
+var enemy4 = new Enemy(-101, 140, 'images/enemy-bug.png');
 var enemy5 = new Enemy(-101, 55, 'images/enemy-bug.png');
 var enemy6 = new Enemy(-101, 225, 'images/enemy-bug.png');
+var enemy7 = new Enemy(-101, 140, 'images/enemy-bug.png');
+var enemy8 = new Enemy(-101, 55, 'images/enemy-bug.png');
+var enemy9 = new Enemy(-101, 225, 'images/enemy-bug.png');
+var enemy10 = new Enemy(-101, 140, 'images/enemy-bug.png');
+var enemy11 = new Enemy(-101, 55, 'images/enemy-bug.png');
+var enemy12 = new Enemy(-101, 225, 'images/enemy-bug.png');
 
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
@@ -121,9 +127,15 @@ var allEnemies = [];
     allEnemies.push(enemy4);
     allEnemies.push(enemy5);
     allEnemies.push(enemy6);
+    allEnemies.push(enemy7);
+    allEnemies.push(enemy8);
+    allEnemies.push(enemy9);
+    allEnemies.push(enemy10);
+    allEnemies.push(enemy11);
+    allEnemies.push(enemy12);
 
 // Place the player object in a variable called player
-var player = new Player(202, 390);
+var player = new Player(404, 390);
 var allPlayers = [];
 allPlayers.push(player);
 
